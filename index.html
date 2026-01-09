@@ -2,294 +2,271 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Jiaxiang Chen | Research & Projects</title>
+  <title>Jiaxiang Chen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root{
       --text:#1f2328;
       --muted:#57606a;
       --link:#0969da;
-      --bg:#ffffff;
-      --soft:#f6f8fa;
       --border:#d0d7de;
+      --soft:#f6f8fa;
     }
-    *{box-sizing:border-box}
+
     body{
       margin:0;
-      background:var(--bg);
+      background:#ffffff;
       color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-      line-height:1.6;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+                   Helvetica,Arial,sans-serif;
+      line-height:1.75;
     }
+
     .wrap{
       max-width: 980px;
-      margin: 48px auto;
-      padding: 0 20px;
+      margin: 56px auto;
+      padding: 0 24px;
     }
-    header{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-    }
+
     h1{
-      margin:0;
-      font-size: 34px;
-      line-height: 1.15;
-      letter-spacing: -0.3px;
+      font-size: 40px;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.4px;
     }
-    .meta{
-      color:var(--muted);
-      font-size: 14px;
+
+    h2{
+      font-size: 26px;
+      margin: 42px 0 14px 0;
+      letter-spacing: -0.2px;
     }
-    .links a{
-      margin-right: 12px;
+
+    h3{
+      font-size: 20px;
+      margin: 22px 0 6px 0;
+    }
+
+    p{
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    ul{
+      margin: 8px 0 0 22px;
+      font-size: 17px;
+    }
+
+    li{ margin-bottom: 6px; }
+
+    a{
       color:var(--link);
       text-decoration:none;
     }
-    .links a:hover{ text-decoration:underline; }
-    section{
-      margin-top: 28px;
+    a:hover{ text-decoration:underline; }
+
+    .meta{
+      font-size:16px;
+      color:var(--muted);
+      margin-bottom: 18px;
     }
-    h2{
-      margin:0 0 10px 0;
-      font-size: 20px;
-      letter-spacing: -0.2px;
+
+    .block{
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 18px;
     }
-    .card{
-      border:1px solid var(--border);
-      border-radius:12px;
-      padding:14px 14px;
-      background:#fff;
-      margin: 12px 0;
-    }
+
     .tag{
       display:inline-block;
-      font-size:12px;
+      font-size:13px;
       color:var(--muted);
       background:var(--soft);
       border:1px solid var(--border);
       border-radius:999px;
-      padding:2px 10px;
+      padding:3px 10px;
       margin-right:6px;
       margin-top:6px;
     }
+
     .paper{
-      margin-top:10px;
-      padding-top:10px;
-      border-top:1px dashed var(--border);
-      font-size: 14px;
+      font-size:17px;
+      margin-bottom: 12px;
     }
-    .paper .title{
-      font-weight: 600;
+
+    .paper-title{
+      font-weight:600;
     }
-    .paper .authors{
-      color: var(--muted);
+
+    .authors, .venue{
+      color:var(--muted);
     }
-    .paper .venue{
-      color: var(--muted);
-      font-style: italic;
-    }
-    .two-col{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-    @media (min-width: 860px){
-      .two-col{ grid-template-columns: 1fr 1fr; }
-    }
-    ul{
-      margin: 8px 0 0 20px;
-      padding:0;
-    }
+
     footer{
-      margin-top: 44px;
+      margin-top: 60px;
       padding-top: 16px;
       border-top:1px solid var(--border);
-      color: var(--muted);
-      font-size: 13px;
+      font-size:14px;
+      color:var(--muted);
     }
-    a{ color: var(--link); }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <header>
-      <h1>Jiaxiang Chen</h1>
-      <div class="meta">
-        Ph.D. student, Computer Science, Fudan University (Sep. 2023 – Jun. 2027) · Shanghai, China
-        &nbsp;·&nbsp; <a href="mailto:23110240003@m.fudan.edu.cn">23110240003@m.fudan.edu.cn</a>
+
+    <h1>Jiaxiang Chen</h1>
+    <div class="meta">
+      Ph.D. student, Computer Science, Fudan University · Shanghai, China ·
+      <a href="mailto:23110240003@m.fudan.edu.cn">23110240003@m.fudan.edu.cn</a>
+    </div>
+
+    <!-- One-paragraph introduction -->
+    <p>
+      I am a Ph.D. student at Fudan University. My research focuses on
+      <strong>experience-guided structured reasoning for intelligent agents</strong>.
+      I study how experience can be represented, reused, and refined to improve
+      reasoning quality and decision robustness, spanning large language model reasoning,
+      agent systems, and learning-based decision environments.
+    </p>
+
+    <!-- Experience -->
+    <h2>Experience</h2>
+
+    <p>
+      I began my research with generative modeling, working on GAN-based image synthesis
+      and pose-guided generation, which provided a solid foundation in modeling,
+      experimentation, and evaluation. Through internships at Tencent and Microsoft,
+      I worked on generation quality improvement, data optimization, and prompt-based
+      learning in real-world systems. I am currently a co-founder of AI2Apps, where I
+      design and build deployable LLM-based agent systems, while my academic research
+      centers on experience-guided reasoning and agent decision-making.
+    </p>
+
+    <!-- Projects -->
+    <h2>Research Projects</h2>
+
+    <h3>Experience-Guided Structured Reasoning for Agents</h3>
+    <p>
+      This line of work studies how experience extracted from successful reasoning
+      or decision trajectories can be structured into reusable guidance, enabling
+      more robust and controllable reasoning in intelligent agents.
+    </p>
+    <span class="tag">LLM Reasoning</span>
+    <span class="tag">Structured Inference</span>
+    <span class="tag">Experience</span>
+
+    <h3>Financial Agent and Decision Learning</h3>
+    <p>
+      I study learnable optimization and decision-making task environments in
+      financial settings, emphasizing strategy learning, adaptation, and
+      evolutionary dynamics rather than fixed or handcrafted trading agents.
+    </p>
+    <span class="tag">Decision Learning</span>
+    <span class="tag">Multi-Agent</span>
+    <span class="tag">Finance</span>
+
+    <h3>Agentic Systems and Deployment</h3>
+    <p>
+      This direction focuses on agentic system design and deployment, bridging
+      research ideas with practical systems, including autonomous agent frameworks
+      and end-to-end deployment pipelines.
+    </p>
+    <span class="tag">Agents</span>
+    <span class="tag">Systems</span>
+    <span class="tag">Deployment</span>
+
+    <!-- Papers -->
+    <h2>Papers</h2>
+
+    <div class="paper">
+      <div class="paper-title">
+        Exploring Kernel-Based Texture Transfer for Pose-Guided Person Image Generation
       </div>
-      <div class="links">
-        <a href="https://github.com/pilgrim00" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" target="_blank" rel="noopener">Google Scholar</a>
-        <a href="#" target="_blank" rel="noopener">CV</a>
+      <div class="authors">
+        Jiaxiang Chen, Jiayuan Fan, Hancheng Ye, Jie Li, Yongbing Liao, Tao Chen
       </div>
-    </header>
-
-    <!-- Experience first -->
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="two-col">
-        <div class="card">
-          <div style="font-weight:600;">Previously</div>
-          <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-            I started from generative modeling and worked on image generation tasks, including
-            GAN-based synthesis and pose-guided generation. This stage trained my fundamentals in
-            modeling, experimentation, and evaluation for generation quality.
-          </div>
-          <div style="margin-top:10px;">
-            <span class="tag">Generative Modeling</span>
-            <span class="tag">Image Synthesis</span>
-            <span class="tag">Evaluation</span>
-          </div>
-          <div class="paper">
-            <div class="title">Exploring Kernel-Based Texture Transfer for Pose-Guided Person Image Generation</div>
-            <div class="authors">Jiaxiang Chen, Jiayuan Fan, Hancheng Ye, Jie Li, Yongbing Liao, Tao Chen</div>
-            <div class="venue">IEEE Transactions on Multimedia, 2022</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <div style="font-weight:600;">Now</div>
-          <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-            I focus on <strong>experience-guided structured reasoning</strong> and <strong>agent decision-making</strong>.
-            My research explores how experience can be represented, reused, and refined to improve
-            reasoning quality and decision robustness, with applications in LLM reasoning and
-            learning-based decision environments.
-          </div>
-          <div style="margin-top:10px;">
-            <span class="tag">LLM Reasoning</span>
-            <span class="tag">Agents</span>
-            <span class="tag">Decision Learning</span>
-            <span class="tag">Experience</span>
-          </div>
-          <div style="margin-top:10px; color:var(--muted); font-size:14px;">
-            Work experience: Tencent (AI Generation Intern, 2021–2022) · Microsoft (LLM Data Intern, 2023–2024) ·
-            AI2Apps (Co-founder, 2024–Present)
-          </div>
-        </div>
+      <div class="venue">
+        IEEE Transactions on Multimedia, 2022
       </div>
-    </section>
+    </div>
 
-    <!-- Projects / Papers -->
-    <section id="projects">
-      <h2>Projects (with Papers)</h2>
-
-      <div class="card">
-        <div style="font-weight:600;">Guideline Forest</div>
-        <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-          Retrieval-augmented structured reasoning that induces <strong>experience-driven guidelines</strong> to guide
-          branching reasoning and refinement in LLMs.
-        </div>
-        <div style="margin-top:10px;">
-          <span class="tag">RAG</span>
-          <span class="tag">Structured Reasoning</span>
-          <span class="tag">Experience</span>
-        </div>
-        <div style="margin-top:10px;">
-          <a href="./guideline-forest/">Project Page</a>
-        </div>
-
-        <div class="paper">
-          <div class="title">Guideline Forest: Retrieval-Augmented Reasoning with Branching Experience-Induced Guidelines</div>
-          <div class="authors">Jiaxiang Chen†, Zhuo Wang†, Mingxi Zou, Qifan Wang, Zenglin Xu</div>
-          <div class="venue">Under review at ACL 2026</div>
-        </div>
-
-        <div class="paper">
-          <div class="title">From Implicit Exploration to Structured Reasoning: Guideline and Refinement for LLMs</div>
-          <div class="authors">Jiaxiang Chen, Zhuo Wang, Mingxi Zou, Zhucong Li, Zhijian Zhou, Song Wang, Zenglin Xu</div>
-          <div class="venue">Findings of EMNLP 2025</div>
-        </div>
+    <div class="paper">
+      <div class="paper-title">
+        AI2Agent: An End-to-End Framework for Deploying AI Projects as Autonomous Agents
       </div>
-
-      <div class="card">
-        <div style="font-weight:600;">FinGame / GameRL</div>
-        <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-          Learnable optimization and decision-making environments for financial strategy learning and evolution,
-          emphasizing interaction-driven adaptation rather than fixed handcrafted strategies.
-        </div>
-        <div style="margin-top:10px;">
-          <span class="tag">Decision Learning</span>
-          <span class="tag">Multi-Agent</span>
-          <span class="tag">Finance</span>
-          <span class="tag">Evolution</span>
-        </div>
-        <div style="margin-top:10px;">
-          <a href="./fingame/">Project Page</a>
-        </div>
-
-        <div class="paper">
-          <div class="title">FinEvo: From Isolated Backtests to Ecological Market Games for Multi-Agent Financial Strategy Evolution</div>
-          <div class="authors">Mingxi Zou†, Jiaxiang Chen†,* , Aotian Luo, Jingyi Dai, Dongning Sun, Zenglin Xu, Chi Zhang</div>
-          <div class="venue">ICLR 2026 Conference Submission</div>
-        </div>
-
-        <div class="paper">
-          <div class="title">FinHEAR: Human Expertise and Adaptive Risk-Aware Temporal Reasoning for Financial Decision-Making</div>
-          <div class="authors">Jiaxiang Chen†, Mingxi Zou†, Zhuo Wang, Qifan Wang, Dongning Sun, Chi Zhang, Zenglin Xu</div>
-          <div class="venue">Findings of EMNLP 2025</div>
-        </div>
+      <div class="authors">
+        Jiaxiang Chen, Jingwei Shi, Lei Gan, Jiale Zhang, Qingyu Zhang, Dongqian Zhang,
+        Xin Pang, Zhucong Li, Yinghui Xu
       </div>
-
-      <div class="card">
-        <div style="font-weight:600;">Agent Systems</div>
-        <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-          System and product-oriented agent framework for deploying AI projects as autonomous agents,
-          bridging research ideas with practical deployment.
-        </div>
-        <div style="margin-top:10px;">
-          <span class="tag">Agent Framework</span>
-          <span class="tag">Deployment</span>
-          <span class="tag">Systems</span>
-        </div>
-        <div style="margin-top:10px;">
-          <a href="./ai2agent/">Project Page</a>
-        </div>
-
-        <div class="paper">
-          <div class="title">AI2Agent: An End-to-End Framework for Deploying AI Projects as Autonomous Agents</div>
-          <div class="authors">Jiaxiang Chen, Jingwei Shi, Lei Gan, Jiale Zhang, Qingyu Zhang, Dongqian Zhang, Xin Pang, Zhucong Li, Yinghui Xu</div>
-          <div class="venue">Proceedings of the ACL 2025 Demo Track</div>
-        </div>
+      <div class="venue">
+        ACL 2025 Demo Track
       </div>
+    </div>
 
-      <div class="card">
-        <div style="font-weight:600;">RAG & Information Selection</div>
-        <div style="color:var(--muted); font-size:14px; margin-top:4px;">
-          Entity-aware context selection for retrieval without explicit graphs, focusing on efficient and robust
-          evidence selection.
-        </div>
-        <div style="margin-top:10px;">
-          <span class="tag">RAG</span>
-          <span class="tag">Entity-Aware</span>
-          <span class="tag">Efficiency</span>
-        </div>
-        <div style="margin-top:10px;">
-          <a href="./slimrag/">Project Page</a>
-        </div>
-
-        <div class="paper">
-          <div class="title">SlimRAG: Retrieval without Graphs via Entity-Aware Context Selection</div>
-          <div class="authors">Jiale Zhang†, Jiaxiang Chen†, Zhucong Li, Jie Ding, Kui Zhao, Zenglin Xu, Xin Pang, Yinghui Xu</div>
-          <div class="venue">Under review at WWW 2026</div>
-        </div>
+    <div class="paper">
+      <div class="paper-title">
+        From Implicit Exploration to Structured Reasoning: Guideline and Refinement for LLMs
       </div>
-    </section>
-
-    <section id="notes">
-      <h2>Notes</h2>
-      <div class="card" style="font-size:14px; color:var(--muted);">
-        † Co-first authors. &nbsp; * Project lead.
+      <div class="authors">
+        Jiaxiang Chen, Zhuo Wang, Mingxi Zou, Zhucong Li, Zhijian Zhou, Song Wang, Zenglin Xu
       </div>
-    </section>
+      <div class="venue">
+        Findings of EMNLP 2025
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title">
+        FinHEAR: Human Expertise and Adaptive Risk-Aware Temporal Reasoning for Financial Decision-Making
+      </div>
+      <div class="authors">
+        Jiaxiang Chen†, Mingxi Zou†, Zhuo Wang, Qifan Wang, Dongning Sun, Chi Zhang, Zenglin Xu
+      </div>
+      <div class="venue">
+        Findings of EMNLP 2025
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title">
+        FinEvo: From Isolated Backtests to Ecological Market Games for Multi-Agent Financial Strategy Evolution
+      </div>
+      <div class="authors">
+        Mingxi Zou†, Jiaxiang Chen†, Aotian Luo, Jingyi Dai, Dongning Sun, Zenglin Xu, Chi Zhang
+      </div>
+      <div class="venue">
+        ICLR 2026 Conference Submission
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title">
+        Guideline Forest: Retrieval-Augmented Reasoning with Branching Experience-Induced Guidelines
+      </div>
+      <div class="authors">
+        Jiaxiang Chen†, Zhuo Wang†, Mingxi Zou, Qifan Wang, Zenglin Xu
+      </div>
+      <div class="venue">
+        Under review at ACL 2026
+      </div>
+    </div>
+
+    <div class="paper">
+      <div class="paper-title">
+        SlimRAG: Retrieval without Graphs via Entity-Aware Context Selection
+      </div>
+      <div class="authors">
+        Jiale Zhang†, Jiaxiang Chen†, Zhucong Li, Jie Ding, Kui Zhao,
+        Zenglin Xu, Xin Pang, Yinghui Xu
+      </div>
+      <div class="venue">
+        Under review at WWW 2026
+      </div>
+    </div>
 
     <footer>
-      © 2026 Jiaxiang Chen · Built with GitHub Pages
+      † Co-first authors. &nbsp; Built with GitHub Pages.
     </footer>
+
   </div>
 </body>
 </html>
