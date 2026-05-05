@@ -1,272 +1,921 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <title>Jiaxiang Chen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Jiaxiang Chen - Ph.D. student at Fudan University. Research on structured reasoning, LLM agents, experience-guided learning, financial decision-making, and agentic systems." />
+
   <style>
     :root{
-      --text:#1f2328;
-      --muted:#57606a;
-      --link:#0969da;
-      --border:#d0d7de;
-      --soft:#f6f8fa;
+      --bg:#ffffff;
+      --text:#20242a;
+      --muted:#5b6673;
+      --muted-2:#7a8695;
+      --link:#2468d2;
+      --border:#dde3ea;
+      --soft:#f7f9fc;
+      --soft-blue:#eef5ff;
+      --soft-purple:#f6f0ff;
+      --soft-gold:#fff7e6;
+      --card:#ffffff;
+      --accent:#2468d2;
+      --accent-2:#6f42c1;
+      --shadow:0 18px 48px rgba(30,42,62,0.08);
+      --shadow-soft:0 8px 26px rgba(30,42,62,0.06);
+      --radius:22px;
+      --max-width:1080px;
     }
+
+    *{ box-sizing:border-box; }
+
+    html{ scroll-behavior:smooth; }
 
     body{
       margin:0;
-      background:#ffffff;
       color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-                   Helvetica,Arial,sans-serif;
-      line-height:1.75;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.72;
+      background:
+        radial-gradient(circle at 10% -10%, rgba(36,104,210,0.13), transparent 32rem),
+        radial-gradient(circle at 95% 4%, rgba(111,66,193,0.10), transparent 28rem),
+        linear-gradient(180deg,#ffffff 0%,#fbfcff 46%,#ffffff 100%);
     }
-
-    .wrap{
-      max-width: 980px;
-      margin: 56px auto;
-      padding: 0 24px;
-    }
-
-    h1{
-      font-size: 40px;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.4px;
-    }
-
-    h2{
-      font-size: 26px;
-      margin: 42px 0 14px 0;
-      letter-spacing: -0.2px;
-    }
-
-    h3{
-      font-size: 20px;
-      margin: 22px 0 6px 0;
-    }
-
-    p{
-      font-size: 18px;
-      margin: 10px 0;
-    }
-
-    ul{
-      margin: 8px 0 0 22px;
-      font-size: 17px;
-    }
-
-    li{ margin-bottom: 6px; }
 
     a{
       color:var(--link);
       text-decoration:none;
     }
+
     a:hover{ text-decoration:underline; }
 
-    .meta{
+    .wrap{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:0 24px 58px;
+    }
+
+    header{
+      padding:46px 0 34px;
+      border-bottom:1px solid rgba(221,227,234,0.9);
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      margin-bottom:46px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
       font-size:16px;
+      font-weight:800;
+      letter-spacing:0.01em;
+    }
+
+    .brand-mark{
+      width:30px;
+      height:30px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 8px 20px rgba(36,104,210,0.22);
+    }
+
+    .nav-links{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      gap:16px;
+      font-size:15px;
+    }
+
+    .nav-links a{
       color:var(--muted);
-      margin-bottom: 18px;
-    }
-
-    .block{
-      border-top: 1px solid var(--border);
-      padding-top: 18px;
-      margin-top: 18px;
-    }
-
-    .tag{
-      display:inline-block;
-      font-size:13px;
-      color:var(--muted);
-      background:var(--soft);
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:3px 10px;
-      margin-right:6px;
-      margin-top:6px;
-    }
-
-    .paper{
-      font-size:17px;
-      margin-bottom: 12px;
-    }
-
-    .paper-title{
       font-weight:600;
     }
 
-    .authors, .venue{
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.3fr) 340px;
+      gap:38px;
+      align-items:end;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin:0 0 14px;
+      padding:5px 11px;
+      border:1px solid #d7e7ff;
+      border-radius:999px;
+      color:#285a9f;
+      background:rgba(238,245,255,0.78);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:0.01em;
+    }
+
+    h1{
+      font-size:54px;
+      line-height:1.04;
+      margin:0 0 13px;
+      letter-spacing:-0.045em;
+    }
+
+    .subtitle{
+      font-size:19px;
       color:var(--muted);
+      margin:0 0 22px;
+    }
+
+    .intro{
+      font-size:20px;
+      max-width:790px;
+      margin:0;
+      color:#2d333b;
+    }
+
+    .intro strong{ color:#111827; }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:22px;
+    }
+
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:9px 15px;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      font-size:14px;
+      font-weight:700;
+      box-shadow:0 6px 16px rgba(30,42,62,0.05);
+    }
+
+    .button.primary{
+      background:linear-gradient(135deg,var(--accent),#4c82dd);
+      border-color:transparent;
+      color:white;
+    }
+
+    .profile-card{
+      background:rgba(255,255,255,0.84);
+      border:1px solid rgba(221,227,234,0.95);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+    }
+
+    .profile-card h2{
+      font-size:18px;
+      margin:0 0 14px;
+      letter-spacing:-0.01em;
+    }
+
+    .info-row{
+      padding:10px 0;
+      border-top:1px solid #edf1f6;
+    }
+
+    .info-row:first-of-type{
+      border-top:0;
+      padding-top:0;
+    }
+
+    .info-label{
+      display:block;
+      color:var(--muted-2);
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+      margin-bottom:2px;
+    }
+
+    .info-value{
+      color:var(--text);
+      font-size:15px;
+      font-weight:600;
+    }
+
+    section{ padding-top:46px; }
+
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:20px;
+      margin-bottom:18px;
+    }
+
+    h2{
+      font-size:30px;
+      line-height:1.22;
+      margin:0;
+      letter-spacing:-0.035em;
+    }
+
+    h3{
+      font-size:20px;
+      line-height:1.35;
+      margin:0 0 8px;
+      letter-spacing:-0.015em;
+    }
+
+    h4{
+      margin:30px 0 12px;
+      color:#2d333b;
+      font-size:17px;
+      letter-spacing:0.01em;
+    }
+
+    p{
+      font-size:17px;
+      margin:10px 0;
+    }
+
+    .section-lead{
+      color:var(--muted);
+      max-width:840px;
+      margin:6px 0 0;
+    }
+
+    .panel{
+      background:rgba(255,255,255,0.92);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow-soft);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    }
+
+    .about-note{ color:var(--muted); }
+
+    .experience-text p{
+      color:#374151;
+    }
+
+    .project-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:16px;
+    }
+
+    .project{
+      min-height:270px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      transition:transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .project:hover{
+      transform:translateY(-3px);
+      box-shadow:0 16px 34px rgba(30,42,62,0.08);
+    }
+
+    .project p{
+      color:var(--muted);
+      font-size:16px;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:16px;
+    }
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid #cfe0f7;
+      background:var(--soft-blue);
+      color:#285a9f;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12.5px;
+      font-weight:800;
+      line-height:1.5;
+    }
+
+    .paper-group{
+      margin-top:18px;
+    }
+
+    .paper-group:first-of-type{
+      margin-top:0;
+    }
+
+    .group-title{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin:28px 0 12px;
+      font-size:18px;
+      font-weight:850;
+      letter-spacing:-0.01em;
+    }
+
+    .group-title::before{
+      content:"";
+      width:9px;
+      height:9px;
+      border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent-2));
+      box-shadow:0 0 0 5px rgba(36,104,210,0.09);
+    }
+
+    .paper-list{
+      display:grid;
+      gap:13px;
+    }
+
+    .paper{
+      position:relative;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      padding:18px 20px 18px 24px;
+      background:rgba(255,255,255,0.94);
+      border:1px solid var(--border);
+      border-radius:18px;
+      box-shadow:0 7px 18px rgba(30,42,62,0.045);
+    }
+
+    .paper::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:18px;
+      bottom:18px;
+      width:4px;
+      border-radius:999px;
+      background:linear-gradient(180deg,var(--accent),var(--accent-2));
+      opacity:0.72;
+    }
+
+    .paper-title{
+      font-size:17px;
+      font-weight:850;
+      line-height:1.45;
+      margin-bottom:5px;
+      letter-spacing:-0.01em;
+    }
+
+    .paper-title a{
+      color:#1f2937;
+    }
+
+    .paper-title a:hover{
+      color:var(--link);
+    }
+
+    .authors,
+    .venue,
+    .paper-note{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .venue{
+      margin-top:3px;
+      font-weight:750;
+      color:#44505e;
+    }
+
+    .paper-note{
+      margin-top:4px;
+      color:var(--muted-2);
+    }
+
+    .paper-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:8px;
+    }
+
+    .paper-link{
+      display:inline-flex;
+      align-items:center;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:3px 9px;
+      background:#fff;
+      font-size:12px;
+      font-weight:800;
+      color:var(--link);
+    }
+
+    .badge{
+      align-self:start;
+      white-space:nowrap;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      font-weight:850;
+      color:#285a9f;
+      background:var(--soft-blue);
+      border:1px solid #cfe0f7;
+    }
+
+    .badge.preprint{
+      color:#6b3fa0;
+      background:var(--soft-purple);
+      border-color:#e4d2ff;
+    }
+
+    .badge.submission{
+      color:#6f4a00;
+      background:var(--soft-gold);
+      border-color:#ffe1a6;
+    }
+
+    .badge.journal{
+      color:#116149;
+      background:#effaf5;
+      border-color:#c8eadc;
+    }
+
+    .note{
+      color:var(--muted);
+      font-size:15px;
+      margin-top:16px;
     }
 
     footer{
-      margin-top: 60px;
-      padding-top: 16px;
+      margin-top:58px;
+      padding-top:20px;
       border-top:1px solid var(--border);
-      font-size:14px;
       color:var(--muted);
+      font-size:14px;
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    @media (max-width: 920px){
+      .hero,
+      .about-grid{
+        grid-template-columns:1fr;
+      }
+
+      .project-grid{
+        grid-template-columns:1fr;
+      }
+
+      .profile-card{
+        max-width:560px;
+      }
+    }
+
+    @media (max-width: 720px){
+      .wrap{
+        padding:0 18px 46px;
+      }
+
+      header{
+        padding-top:30px;
+      }
+
+      .nav{
+        align-items:flex-start;
+        flex-direction:column;
+        margin-bottom:34px;
+      }
+
+      .nav-links{
+        justify-content:flex-start;
+        gap:12px;
+      }
+
+      h1{
+        font-size:40px;
+      }
+
+      .intro{
+        font-size:18px;
+      }
+
+      .section-head{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .paper{
+        grid-template-columns:1fr;
+        gap:10px;
+      }
+
+      .badge{
+        justify-self:start;
+      }
+    }
+
+    @media print{
+      body{ background:#fff; }
+
+      .nav,
+      .hero-actions{
+        display:none;
+      }
+
+      .panel,
+      .paper,
+      .profile-card{
+        box-shadow:none;
+      }
+
+      a{
+        color:var(--text);
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+    <header>
+      <nav class="nav" aria-label="Primary navigation">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Jiaxiang Chen</span>
+        </div>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Research</a>
+          <a href="#papers">Papers</a>
+          <a href="mailto:jiaxiangchen23@m.fudan.edu.cn">Email</a>
+        </div>
+      </nav>
 
-    <h1>Jiaxiang Chen</h1>
-    <div class="meta">
-      Ph.D. student, Computer Science, Fudan University · Shanghai, China ·
-      <a href="mailto:23110240003@m.fudan.edu.cn">23110240003@m.fudan.edu.cn</a>
-    </div>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">Structured Reasoning · LLM Agents · Decision Learning</div>
+          <h1>Jiaxiang Chen</h1>
+          <p class="subtitle">
+            Ph.D. student in Computer Science, Fudan University
+          </p>
+          <p class="intro">
+            I work on <strong>experience-guided structured reasoning</strong> for intelligent agents.
+            My research explores how large language models can learn from prior trajectories,
+            organize reusable reasoning skills, and make more reliable decisions in complex
+            interactive environments.
+          </p>
 
-    <!-- One-paragraph introduction -->
-    <p>
-      I am a Ph.D. student at Fudan University. My research focuses on
-      <strong>experience-guided structured reasoning for intelligent agents</strong>.
-      I study how experience can be represented, reused, and refined to improve
-      reasoning quality and decision robustness, spanning large language model reasoning,
-      agent systems, and learning-based decision environments.
-    </p>
+          <div class="hero-actions">
+            <a class="button primary" href="mailto:jiaxiangchen23@m.fudan.edu.cn">Contact Me</a>
+            <a class="button" href="#papers">View Papers</a>
+            <a class="button" href="#projects">Research Projects</a>
+          </div>
+        </div>
 
-    <!-- Experience -->
-    <h2>Experience</h2>
+        <aside class="profile-card" aria-label="Profile information">
+          <h2>Profile</h2>
+          <div class="info-row">
+            <span class="info-label">Affiliation</span>
+            <span class="info-value">Fudan University</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Location</span>
+            <span class="info-value">Shanghai, China</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Email</span>
+            <span class="info-value"><a href="mailto:jiaxiangchen23@m.fudan.edu.cn">jiaxiangchen23@m.fudan.edu.cn</a></span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Interests</span>
+            <span class="info-value">LLM agents, structured reasoning, skill learning, financial decision-making</span>
+          </div>
+        </aside>
+      </div>
+    </header>
 
-    <p>
-      I began my research with generative modeling, working on GAN-based image synthesis
-      and pose-guided generation, which provided a solid foundation in modeling,
-      experimentation, and evaluation. Through internships at Tencent and Microsoft,
-      I worked on generation quality improvement, data optimization, and prompt-based
-      learning in real-world systems. I am currently a co-founder of AI2Apps, where I
-      design and build deployable LLM-based agent systems, while my academic research
-      centers on experience-guided reasoning and agent decision-making.
-    </p>
+    <main>
+      <section id="about">
+        <div class="section-head">
+          <div>
+            <h2>About</h2>
+            <p class="section-lead">
+              My work sits at the intersection of reasoning, agents, and decision-making systems.
+            </p>
+          </div>
+        </div>
 
-    <!-- Projects -->
-    <h2>Research Projects</h2>
+        <div class="about-grid">
+          <div class="panel">
+            <p>
+              I am interested in building intelligent agents that can go beyond one-shot prompting.
+              A central theme of my research is to transform implicit trial-and-error behavior into
+              explicit structures such as guidelines, skills, memories, and verification procedures.
+              Together with reliable agent harnesses, these structures make agent reasoning and action
+              more reusable, controllable, and robust.
+            </p>
+          </div>
 
-    <h3>Experience-Guided Structured Reasoning for Agents</h3>
-    <p>
-      This line of work studies how experience extracted from successful reasoning
-      or decision trajectories can be structured into reusable guidance, enabling
-      more robust and controllable reasoning in intelligent agents.
-    </p>
-    <span class="tag">LLM Reasoning</span>
-    <span class="tag">Structured Inference</span>
-    <span class="tag">Experience</span>
+          <div class="panel">
+            <p class="about-note">
+              My recent projects study structured reasoning for LLMs, experience-induced memory for
+              retrieval-augmented reasoning, agent harnesses, skill-oriented deployment frameworks, and
+              decision-oriented environments such as financial markets and multi-agent strategy games.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <h3>Financial Agent and Decision Learning</h3>
-    <p>
-      I study learnable optimization and decision-making task environments in
-      financial settings, emphasizing strategy learning, adaptation, and
-      evolutionary dynamics rather than fixed or handcrafted trading agents.
-    </p>
-    <span class="tag">Decision Learning</span>
-    <span class="tag">Multi-Agent</span>
-    <span class="tag">Finance</span>
+      <section id="experience">
+        <h2>Experience</h2>
+        <div class="panel experience-text">
+          <p>
+            I began my research with generative modeling, including GAN-based image synthesis and
+            pose-guided person image generation. This early work gave me a foundation in representation
+            learning, controllable generation, and empirical evaluation, and gradually led me toward
+            broader questions about how intelligent systems reason, plan, and adapt.
+          </p>
+          <p>
+            During my Ph.D. at Fudan University, my research has shifted toward structured reasoning
+            and LLM-based agents. I study how prior experience can be transformed into reusable
+            guidelines, memories, and skills, and how agent harnesses can support reliable execution
+            across reasoning, tool-use, deployment, and decision-making tasks.
+          </p>
+          <p>
+            I have also gained industry research experience through internships at Tencent and Microsoft,
+            where I worked on generation quality improvement, data optimization, and prompt-based
+            learning in real-world AI systems. I used to be a co-founder of AI2Apps, where I designed
+            and built deployable LLM-based agent systems that connect research prototypes with practical
+            workflows and deployment pipelines.
+          </p>
+        </div>
+      </section>
 
-    <h3>Agentic Systems and Deployment</h3>
-    <p>
-      This direction focuses on agentic system design and deployment, bridging
-      research ideas with practical systems, including autonomous agent frameworks
-      and end-to-end deployment pipelines.
-    </p>
-    <span class="tag">Agents</span>
-    <span class="tag">Systems</span>
-    <span class="tag">Deployment</span>
+      <section id="projects">
+        <div class="section-head">
+          <div>
+            <h2>Research</h2>
+            <p class="section-lead">
+              My research is organized around three connected directions: learning reusable reasoning
+              experience and skills, building agentic systems with reliable harnesses, and studying
+              decision-making agents in dynamic environments. The paper list below follows the same structure.
+            </p>
+          </div>
+        </div>
 
-    <!-- Papers -->
-    <h2>Papers</h2>
+        <div class="project-grid">
+          <article class="panel project">
+            <div>
+              <h3>Experience-Guided Reasoning and Skills</h3>
+              <p>
+                This direction studies how prior trajectories can be transformed into explicit
+                guidelines, reusable skills, memories, and refinement procedures. The goal is to make
+                LLM reasoning and agent actions more reusable, controllable, and robust across tasks.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Structured Reasoning</span>
+              <span class="tag">Skill Learning</span>
+              <span class="tag">Experience Memory</span>
+            </div>
+          </article>
 
-    <div class="paper">
-      <div class="paper-title">
-        Exploring Kernel-Based Texture Transfer for Pose-Guided Person Image Generation
-      </div>
-      <div class="authors">
-        Jiaxiang Chen, Jiayuan Fan, Hancheng Ye, Jie Li, Yongbing Liao, Tao Chen
-      </div>
-      <div class="venue">
-        IEEE Transactions on Multimedia, 2022
-      </div>
-    </div>
+          <article class="panel project">
+            <div>
+              <h3>Agentic Systems and Harness</h3>
+              <p>
+                This direction focuses on the execution layer of intelligent agents, including agent
+                harness design, tool-use workflows, deployment pipelines, and retrieval-augmented
+                context management. I am interested in how a harness can make agent behavior more
+                observable, steerable, and reliable in real systems.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Agent Harness</span>
+              <span class="tag">Tool Use</span>
+              <span class="tag">Deployment</span>
+            </div>
+          </article>
 
-    <div class="paper">
-      <div class="paper-title">
-        AI2Agent: An End-to-End Framework for Deploying AI Projects as Autonomous Agents
-      </div>
-      <div class="authors">
-        Jiaxiang Chen, Jingwei Shi, Lei Gan, Jiale Zhang, Qingyu Zhang, Dongqian Zhang,
-        Xin Pang, Zhucong Li, Yinghui Xu
-      </div>
-      <div class="venue">
-        ACL 2025 Demo Track
-      </div>
-    </div>
+          <article class="panel project">
+            <div>
+              <h3>Financial Agents and Decision Learning</h3>
+              <p>
+                This direction investigates decision-making agents in dynamic environments, especially
+                financial reasoning, risk-aware temporal analysis, and ecological market games for
+                multi-agent strategy evolution.
+              </p>
+            </div>
+            <div class="tags">
+              <span class="tag">Finance</span>
+              <span class="tag">Multi-Agent</span>
+              <span class="tag">Decision Learning</span>
+            </div>
+          </article>
+        </div>
+      </section>
 
-    <div class="paper">
-      <div class="paper-title">
-        From Implicit Exploration to Structured Reasoning: Guideline and Refinement for LLMs
-      </div>
-      <div class="authors">
-        Jiaxiang Chen, Zhuo Wang, Mingxi Zou, Zhucong Li, Zhijian Zhou, Song Wang, Zenglin Xu
-      </div>
-      <div class="venue">
-        Findings of EMNLP 2025
-      </div>
-    </div>
+      <section id="papers">
+        <div class="section-head">
+          <div>
+            <h2>Papers</h2>
+            <p class="section-lead">
+              Selected publications and preprints, grouped according to the three research directions above.
+            </p>
+          </div>
+        </div>
 
-    <div class="paper">
-      <div class="paper-title">
-        FinHEAR: Human Expertise and Adaptive Risk-Aware Temporal Reasoning for Financial Decision-Making
-      </div>
-      <div class="authors">
-        Jiaxiang Chen†, Mingxi Zou†, Zhuo Wang, Qifan Wang, Dongning Sun, Chi Zhang, Zenglin Xu
-      </div>
-      <div class="venue">
-        Findings of EMNLP 2025
-      </div>
-    </div>
+        <div class="paper-group">
+          <div class="group-title">Experience-Guided Reasoning and Skills</div>
+          <div class="paper-list">
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2509.06284" target="_blank" rel="noopener">
+                    From Implicit Exploration to Structured Reasoning: Leveraging Guideline and Refinement for LLMs
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen, Zhuo Wang, Mingxi Zou, Zhucong Li, Zhijian Zhou, Song Wang, Zenglin Xu</div>
+                <div class="venue">Findings of EMNLP 2025</div>
+                <div class="paper-note">Guideline induction and stepwise refinement for stabilizing LLM reasoning.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2509.06284" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge">NLP</div>
+            </article>
 
-    <div class="paper">
-      <div class="paper-title">
-        FinEvo: From Isolated Backtests to Ecological Market Games for Multi-Agent Financial Strategy Evolution
-      </div>
-      <div class="authors">
-        Mingxi Zou†, Jiaxiang Chen†, Aotian Luo, Jingyi Dai, Dongning Sun, Zenglin Xu, Chi Zhang
-      </div>
-      <div class="venue">
-        ICLR 2026 Conference Submission
-      </div>
-    </div>
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2506.07820" target="_blank" rel="noopener">
+                    Guideline Forest: Experience-Induced Multi-Guideline Reasoning with Stepwise Aggregation
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen†, Zhuo Wang†, Mingxi Zou, Qifan Wang, Zenglin Xu</div>
+                <div class="venue">arXiv preprint, 2026</div>
+                <div class="paper-note">Retrieval-augmented reasoning with branching experience-induced guidelines and stepwise aggregation.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2506.07820" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge preprint">Preprint</div>
+            </article>
 
-    <div class="paper">
-      <div class="paper-title">
-        Guideline Forest: Retrieval-Augmented Reasoning with Branching Experience-Induced Guidelines
-      </div>
-      <div class="authors">
-        Jiaxiang Chen†, Zhuo Wang†, Mingxi Zou, Qifan Wang, Zenglin Xu
-      </div>
-      <div class="venue">
-        Under review at ACL 2026
-      </div>
-    </div>
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2409.12979" target="_blank" rel="noopener">
+                    Can We Only Use Guideline Instead of Shot in Prompt?
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen, Song Wang, Zhucong Li, Wayne Xiong, Lizhen Qu, Zenglin Xu, Yuan Qi</div>
+                <div class="venue">arXiv preprint, 2024</div>
+                <div class="paper-note">Studies whether task-specific guidelines can replace few-shot examples in prompting.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2409.12979" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge preprint">Preprint</div>
+            </article>
 
-    <div class="paper">
-      <div class="paper-title">
-        SlimRAG: Retrieval without Graphs via Entity-Aware Context Selection
-      </div>
-      <div class="authors">
-        Jiale Zhang†, Jiaxiang Chen†, Zhucong Li, Jie Ding, Kui Zhao,
-        Zenglin Xu, Xin Pang, Yinghui Xu
-      </div>
-      <div class="venue">
-        Under review at WWW 2026
-      </div>
-    </div>
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://www.techrxiv.org/doi/10.36227/techrxiv.177041975.54183859" target="_blank" rel="noopener">
+                    The Era of Skill Growing Agents: Shift from Task Execution to Skill Growth
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen†, Zhucong Li†, Yifan Jiang, Zhiguang Han, Weiyi Huang, and collaborators</div>
+                <div class="venue">TechRxiv preprint, 2026</div>
+                <div class="paper-note">A perspective on moving agent systems from isolated task execution toward continual skill growth.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://www.techrxiv.org/doi/10.36227/techrxiv.177041975.54183859" target="_blank" rel="noopener">TechRxiv</a>
+                </div>
+              </div>
+              <div class="badge preprint">Preprint</div>
+            </article>
+          </div>
+        </div>
+
+
+        <div class="paper-group">
+          <div class="group-title">Agentic Systems and Harness</div>
+          <div class="paper-list">
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2503.23948" target="_blank" rel="noopener">
+                    AI2Agent: An End-to-End Framework for Deploying AI Projects as Autonomous Agents
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen, Jingwei Shi, Lei Gan, Jiale Zhang, Qingyu Zhang, Dongqian Zhang, Xin Pang, Zhucong Li, Yinghui Xu</div>
+                <div class="venue">ACL 2025 Demo Track</div>
+                <div class="paper-note">A deployment framework that turns AI projects into reusable autonomous agents.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2503.23948" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge">Demo</div>
+            </article>
+
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2506.17288" target="_blank" rel="noopener">
+                    SlimRAG: Retrieval without Graphs via Entity-Aware Context Selection
+                  </a>
+                </div>
+                <div class="authors">Jiale Zhang†, Jiaxiang Chen†, Zhucong Li, Jie Ding, Kui Zhao, Zenglin Xu, Xin Pang, Yinghui Xu</div>
+                <div class="venue">arXiv preprint, 2025</div>
+                <div class="paper-note">A lightweight retrieval method based on entity-aware context selection without graph construction.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2506.17288" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge preprint">Preprint</div>
+            </article>
+
+            <article class="paper">
+              <div>
+                <div class="paper-title">Exploring Kernel-Based Texture Transfer for Pose-Guided Person Image Generation</div>
+                <div class="authors">Jiaxiang Chen, Jiayuan Fan, Hancheng Ye, Jie Li, Yongbing Liao, Tao Chen</div>
+                <div class="venue">IEEE Transactions on Multimedia, 2022</div>
+                <div class="paper-note">Early work on controllable person image generation and texture transfer.</div>
+              </div>
+              <div class="badge journal">Journal</div>
+            </article>
+          </div>
+        </div>
+
+
+        <div class="paper-group">
+          <div class="group-title">Financial Agents and Decision Learning</div>
+          <div class="paper-list">
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2506.09080" target="_blank" rel="noopener">
+                    FinHEAR: Human Expertise and Adaptive Risk-Aware Temporal Reasoning for Financial Decision-Making
+                  </a>
+                </div>
+                <div class="authors">Jiaxiang Chen†, Mingxi Zou†, Zhuo Wang, Qifan Wang, Dongning Sun, Chi Zhang, Zenglin Xu</div>
+                <div class="venue">Findings of EMNLP 2025</div>
+                <div class="paper-note">Human expertise, event-aware reasoning, and adaptive risk analysis for financial decision-making.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2506.09080" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge">Finance</div>
+            </article>
+
+            <article class="paper">
+              <div>
+                <div class="paper-title">
+                  <a href="https://arxiv.org/abs/2602.00948" target="_blank" rel="noopener">
+                    FinEvo: From Isolated Backtests to Ecological Market Games for Multi-Agent Financial Strategy Evolution
+                  </a>
+                </div>
+                <div class="authors">Mingxi Zou†, Jiaxiang Chen†, Aotian Luo, Jingyi Dai, Chi Zhang, Dongning Sun, Zenglin Xu</div>
+                <div class="venue">arXiv preprint, 2026</div>
+                <div class="paper-note">An ecological market-game framework for studying strategy adaptation and evolution among financial agents.</div>
+                <div class="paper-links">
+                  <a class="paper-link" href="https://arxiv.org/abs/2602.00948" target="_blank" rel="noopener">arXiv</a>
+                </div>
+              </div>
+              <div class="badge preprint">Preprint</div>
+            </article>
+          </div>
+        </div>
+
+        <p class="note">† Co-first authors. Public links are provided when an arXiv or TechRxiv version is available.</p>
+      </section>
+    </main>
 
     <footer>
-      † Co-first authors. &nbsp; Built with GitHub Pages.
+      <span>© Jiaxiang Chen</span>
+      <span>Built with GitHub Pages · Last updated 2026</span>
     </footer>
-
   </div>
 </body>
 </html>
